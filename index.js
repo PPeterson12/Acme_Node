@@ -5,7 +5,40 @@ const client = new pg.Client(
 );
 const app = express();
 
+app.use(express.json());
+app.use(require("morgan")("dev"));
+app.post("/api/notes", async (req, res, next) => {
+  try {
+    app.post();
+  } catch (error) {
+    console.log(error);
+  }
+});
+app.get("/api/notes", async (req, res, next) => {
+  try {
+    app.get();
+  } catch (error) {
+    console.log(error);
+  }
+});
+app.put("/api/notes/:id", async (req, res, next) => {
+  try {
+    app.put();
+  } catch (error) {
+    console.log(error);
+  }
+});
+app.delete("/api/notes/:id", async (red, res, next) => {
+  try {
+    app.delete();
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 const init = async () => {
+  const port = process.env.PORT || 3000;
+  app.listen(port, () => console.log(`listening on port ${port}`));
   await client.connect();
   console.log("connected to database");
 
