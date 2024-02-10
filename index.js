@@ -13,6 +13,11 @@ app.post("/api/notes", async (req, res, next) => {
   } catch (error) {
     console.log(error);
   }
+  const SQL = `SELECT * from notes ORDER BY created_at DESC;
+  INSERT INTO notes(txt) VALUES ${1} RESULT *
+  `;
+  const response = await client.query(SQL);
+  res.send(response.rows);
 });
 app.get("/api/notes", async (req, res, next) => {
   try {
@@ -20,6 +25,9 @@ app.get("/api/notes", async (req, res, next) => {
   } catch (error) {
     console.log(error);
   }
+  const SQL = `SELECT * from notes ORDER BY created_at DESC;`;
+  const response = await client.query(SQL);
+  res.send(response.rows);
 });
 app.put("/api/notes/:id", async (req, res, next) => {
   try {
@@ -27,6 +35,9 @@ app.put("/api/notes/:id", async (req, res, next) => {
   } catch (error) {
     console.log(error);
   }
+  const SQL = `SELECT * from notes ORDER BY created_at DESC;`;
+  const response = await client.query(SQL);
+  res.send(response.rows);
 });
 app.delete("/api/notes/:id", async (red, res, next) => {
   try {
@@ -34,6 +45,9 @@ app.delete("/api/notes/:id", async (red, res, next) => {
   } catch (error) {
     console.log(error);
   }
+  const SQL = `SELECT * from notes ORDER BY created_at DESC;`;
+  const response = await client.query(SQL);
+  res.send(response.rows);
 });
 
 const init = async () => {
